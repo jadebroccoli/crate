@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+dist
+target
+*.db
+.env
+.env.local
+apps/desktop
+apps/web
+.git
+.claude

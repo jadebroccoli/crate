@@ -1,0 +1,25 @@
+{
+  "identifier": "default",
+  "description": "Default capabilities for the CRATE app",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "shell:allow-open",
+    "shell:allow-execute",
+    "deep-link:default",
+    {
+      "identifier": "fs:allow-read",
+      "allow": [
+        { "path": "$HOME/Music/CRATE/**" },
+        { "path": "$APPDATA/**" }
+      ]
+    },
+    {
+      "identifier": "fs:allow-write",
+      "allow": [
+        { "path": "$HOME/Music/CRATE/**" },
+        { "path": "$APPDATA/**" }
+      ]
+    }
+  ]
+}

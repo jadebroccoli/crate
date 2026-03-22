@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+  backend:
+    build: .
+    ports:
+      - "4242:4242"
+    environment:
+      - PORT=4242
+      - QUEUE_BACKEND=redis
+      - REDIS_URL=redis://redis:6379
+      - DATABASE_URL=file:./crate.db
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID:-ec104e360a7a479fb3e0e0fee2a9fac8}
+      - SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET:-f39814ac7c1d40ff9aa757edd407fea2}
+      - SPOTIFY_REDIRECT_URI=${SPOTIFY_REDIRECT_URI:-http://127.0.0.1:3000/callback}
+    depends_on:
+      - redis
+
+volumes:
+  redis-data:

@@ -1,0 +1,136 @@
+/* ============================================================
+   CRATE — Design Tokens
+   Single source of truth for all visual decisions.
+   Import this at the root of your app (e.g. in globals.css).
+   ============================================================ */
+
+/* ── Google Fonts import ─────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&display=swap');
+
+:root {
+
+  /* ── Colour: Backgrounds ──────────────────────────────── */
+  --c-bg:           #0e0c08;   /* App shell / page background */
+  --c-surface:      #161410;   /* Cards, track rows, panels */
+  --c-surface-2:    #1c1a14;   /* Elevated surface (hover state bg) */
+  --c-border:       rgba(240, 234, 216, 0.07);  /* Default border */
+  --c-border-hover: rgba(240, 234, 216, 0.14);  /* Hover border */
+
+  /* ── Colour: Text ─────────────────────────────────────── */
+  --c-text-primary:   #f0ead8;              /* Headings, track titles */
+  --c-text-secondary: rgba(240,234,216,.55); /* Artists, subtitles */
+  --c-text-muted:     rgba(240,234,216,.28); /* Labels, timestamps */
+  --c-text-dim:       rgba(240,234,216,.14); /* Placeholders */
+
+  /* ── Colour: Accent (amber — primary) ────────────────── */
+  --c-accent:           #e8a020;
+  --c-accent-bg:        rgba(232, 160, 32, 0.10);
+  --c-accent-border:    rgba(232, 160, 32, 0.28);
+  --c-accent-text:      #e8a020;   /* Text ON accent-bg surfaces */
+
+  /* ── Colour: Genre accents ────────────────────────────── */
+  /* Used in track cards, genre bars, badges — always encodes genre */
+  --c-genre-hiphop:         #e8a020;  /* Hip-Hop / Rap   → amber */
+  --c-genre-hiphop-bg:      rgba(232, 160, 32, 0.10);
+  --c-genre-hiphop-border:  rgba(232, 160, 32, 0.28);
+
+  --c-genre-rnb:            #c46c34;  /* R&B / Soul       → burnt sienna */
+  --c-genre-rnb-bg:         rgba(196, 108, 52, 0.10);
+  --c-genre-rnb-border:     rgba(196, 108, 52, 0.28);
+
+  --c-genre-afro:           #6c8cc4;  /* Afrobeats        → dusty steel blue */
+  --c-genre-afro-bg:        rgba(108, 140, 196, 0.10);
+  --c-genre-afro-border:    rgba(108, 140, 196, 0.28);
+
+  --c-genre-pop:            rgba(240,234,216,.4); /* Pop crossover → muted cream */
+  --c-genre-pop-bg:         rgba(240,234,216,.06);
+  --c-genre-pop-border:     rgba(240,234,216,.14);
+
+  /* ── Colour: Status ───────────────────────────────────── */
+  --c-status-downloading:        #6c8cc4;
+  --c-status-downloading-bg:     rgba(108, 140, 196, 0.12);
+  --c-status-downloading-border: rgba(108, 140, 196, 0.28);
+
+  --c-status-done:               #60a050;
+  --c-status-done-bg:            rgba(96, 160, 80, 0.12);
+  --c-status-done-border:        rgba(96, 160, 80, 0.28);
+
+  --c-status-pending:            rgba(240,234,216,.3);
+  --c-status-pending-bg:         rgba(240,234,216,.06);
+  --c-status-pending-border:     rgba(240,234,216,.12);
+
+  --c-status-error:              #c45050;
+  --c-status-error-bg:           rgba(196, 80, 80, 0.12);
+  --c-status-error-border:       rgba(196, 80, 80, 0.28);
+
+  /* ── Colour: Progress bars ────────────────────────────── */
+  --c-progress-track: rgba(240,234,216,.08);
+  --c-progress-fill:  var(--c-accent);
+  --c-progress-done:  var(--c-status-done);
+
+  /* ── Colour: Waveform bars (energy indicator) ─────────── */
+  --c-wave-active:   var(--c-accent);       /* top-pick / active track */
+  --c-wave-inactive: rgba(240,234,216,.12); /* all other tracks */
+
+  /* ── Typography: Families ─────────────────────────────── */
+  --font-wordmark: 'Fraunces', Georgia, 'Times New Roman', serif;
+    /* Usage: app name "Crate" only — always italic, weight 600 */
+
+  --font-ui: 'Barlow Condensed', sans-serif;
+    /* Usage: tab labels, section headers, badges, buttons
+       Always: uppercase, letter-spacing 0.06–0.1em, weight 700 */
+
+  --font-meta: 'JetBrains Mono', 'Courier New', monospace;
+    /* Usage: BPM, key, file size, timestamps, file paths
+       Weight: 400–500 */
+
+  /* ── Typography: Scale ────────────────────────────────── */
+  --text-xs:   11px;   /* Section labels, usage notes */
+  --text-sm:   12px;   /* Meta values (BPM/key inline), timestamps */
+  --text-base: 14px;   /* Track artists, secondary body */
+  --text-md:   15px;   /* Track titles, primary body */
+  --text-lg:   16px;   /* Track titles (discover view) */
+  --text-xl:   22px;   /* Section headings (e.g. "Download queue") */
+  --text-2xl:  24px;   /* Wordmark */
+  --text-stat: 28px;   /* Library stat numbers */
+
+  /* ── Typography: Letter spacing ──────────────────────────*/
+  --ls-ui:      0.07em;   /* Barlow Condensed labels */
+  --ls-ui-wide: 0.1em;    /* Barlow section headers */
+  --ls-meta:    0.03em;   /* Mono metadata */
+
+  /* ── Spacing ──────────────────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+
+  /* ── Layout ───────────────────────────────────────────── */
+  --app-max-width:    1080px;
+  --app-padding-x:    32px;
+  --app-padding-top:  24px;
+  --tab-bar-height:   44px;
+
+  /* ── Border radius ────────────────────────────────────── */
+  --radius-sm:   3px;   /* Badges, status chips, stem toggles */
+  --radius-md:   5px;   /* Track rows */
+  --radius-lg:   8px;   /* Cards (queue items, taste sections) */
+  --radius-xl:  12px;   /* Stat cards, library album art */
+  --radius-full: 100px; /* Filter chips (pill shape) */
+
+  /* ── Left accent border ───────────────────────────────── */
+  /* Applied to top-pick tracks and connected-source banners */
+  --accent-border-left: 2px solid var(--c-accent);
+  --rnb-border-left:    2px solid var(--c-genre-rnb);
+
+  /* ── Transition ───────────────────────────────────────── */
+  --transition-fast: 120ms ease;
+  --transition-base: 180ms ease;
+
+  /* ── Shadows ──────────────────────────────────────────── */
+  /* Intentionally minimal — depth comes from surface colour stepping */
+  --shadow-none: none;
+}

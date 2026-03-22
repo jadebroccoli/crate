@@ -1,0 +1,19 @@
+/* ── Design tokens (single source of truth) ─────────────── */
+@import '../../../design/crate-tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-text-primary);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(240,234,216,0.12); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(240,234,216,0.2); }
